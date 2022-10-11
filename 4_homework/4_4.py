@@ -7,16 +7,19 @@
 # k=5 -> 3x⁵ + 5x⁴ - 6x³ - 3x = 0
 
 from random import randint
+  
+k = int(input("Введите натуральную степень k: "))
 
 path1 = 'pol1.txt'
 path2 = 'pol2.txt'
 
+def rand_coef():
+    return randint(-100,100)
 
-def create_polymonial():
-    k = int(input("Введите натуральную степень k: "))
+def create_polymonial(k):
     string = ''
     for i in range(k, -1, -1):
-        coef = randint(-100, 100)
+        coef = rand_coef()
         if len(string) == 0 and coef != 0:
             string += f"{coef}*x^{i}"
         elif i not in [0,1] and coef != 0:
@@ -38,7 +41,7 @@ def create_polymonial():
     return string
 
 with open(path1, 'w', encoding='UTF-8') as data:
-    data.write(create_polymonial())
+    data.write(create_polymonial(k))
 
 with open(path2, 'w', encoding='UTF-8') as data:
-    data.write(create_polymonial())
+    data.write(create_polymonial(k))
