@@ -31,5 +31,5 @@ def recovery(string):
             sum = ''
     return recovery_str
 
-print(compression(str_compression))
-print(recovery(str_recovery))
+print(f'{str_compression} => {compression(str_compression)}')
+print(f'{str_recovery} => {recovery(str_recovery)}')
